@@ -1,0 +1,44 @@
+{{#if resume.projects.length}}
+    <section>
+        <h2>Projects</h2>
+        {{#each resume.projects}}
+            <div class="mb-6 break-inside-avoid">
+                <div class="flex flex-row items-start justify-between mb-3">
+                    <div>
+                        <h3 class="text-base font-bold">
+                            {{ name }}
+                        </h3>
+                        {{#if url}}
+                            <a href="{{ url }}" target="_blank">
+                                {{ url }} <i class="fa fa-external-link text-xs" aria-hidden="true"></i>
+                            </a>
+                        {{/if}}
+                    </div>
+                    {{#if startDate}}
+                        <div class="text-sm text-orange-500">
+                            {{ formatDate startDate }}
+                            {{#if endDate}}
+                                -
+                                {{ formatDate endDate }}
+                            {{ else }}
+                                - Present
+                            {{/if}}
+                        </div>
+                    {{ else }}
+                        {{#if date}}
+                            <div class="text-sm text-orange-500">
+                                {{ formatDate date }}
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                {{#if description}}
+                    <p class="mb-2">{{ description }}</p>
+                {{/if}}
+                {{#each keywords}}
+                    {{> keyword-section-item name=name keywords=keywords }}
+                {{/each}}
+            </div>
+        {{/each}}
+    </section>
+{{/if}}

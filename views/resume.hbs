@@ -1,62 +1,68 @@
 <!doctype html>
 <html>
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
 
-	<title>{{resume.basics.name}}</title>
+        <title>{{ resume.basics.name }}</title>
 
-  {{!-- Fonts and icons --}}
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        {{!-- Fonts and icons --}}
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  {{!-- When using with resume-cli, inline CSS --}}
-  {{#if css}}
-    <style>
-      {{{css}}}
-    </style>
-  {{/if}}
+        {{!-- When using with resume-cli, inline CSS --}}
+        {{#if css}}
+            <style>
+                {{{css}}}</style>
+        {{/if}}
 
-  {{!-- When developing, stylesheet is loaded from another file --}}
-  {{#if stylesheet}}
-    <link rel="stylesheet" href="{{stylesheet}}"/>
-  {{/if}}
+        {{!-- When developing, stylesheet is loaded from another file --}}
+        {{#if stylesheet}}
+            <link rel="stylesheet" href="{{ stylesheet }}"/>
+        {{/if}}
 
-	</head>
-	<body class="bg-orange-50 pt-8 px-4 print:px-8 text-slate-900 text-sm">
-	<div class="max-w-4xl mx-auto px-2">
-  <div class="mb-2">
-      <div class="flex flex-col sm:flex-row print:flex-row sm:justify-between print:justify-between">
-        <div>
-          <h1 class="text-5xl mb-4">{{resume.basics.name}}</h1>
-          <h2 class="text-xl mb-4">{{resume.basics.label}}</h2>
-        </div>
-        <div>
-          {{> contact}}
-        </div>
-      </div>
-    </div>
-    {{#if resume.basics.summary}}
-      <div class="mb-4">
-        <p>{{resume.basics.summary}}</p>
-      </div>
-    {{/if}}
-    <div class="sm:grid print:grid grid-cols-4 gap-8">
-      <div class="sm:order-2 print:order-2 col-span-3 mb-4">
-        {{> work }}
-        {{> volunteer }}
-        {{> education }}
-        {{> awards }}
-        {{> publications }}
-        {{> references }}
-      </div>
-      <div class="order-1 col-span-1 mb-4">
-        {{> skills }}
-        {{> languages }}
-        {{> interests }}
-      </div>
-    </div>
-	</body>
+    </head>
+    <body class="bg-orange-50 pt-8 px-4 print:px-8 text-slate-900 text-sm">
+        <div class="max-w-4xl mx-auto px-2">
+            <div class="mb-2">
+                <div class="flex flex-col sm:flex-row print:flex-row sm:justify-between print:justify-between">
+                    <div>
+                       <div class="profile-pic ">
+                           <img class="media-object mb-4 img-circle center-block" alt="{{resume.basics.name}}" src="{{resume.basics.picture}}" itemprop="image">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h1 class="text-5xl mb-4">{{ resume.basics.name }}</h1>
+                        <h2 class="text-xl mb-4">{{ resume.basics.label }}</h2>
+                    </div>
+                    <div>
+                        {{> contact }}
+                    </div>
+                </div>
+            </div>
+            {{#if resume.basics.summary}}
+                <div class="mb-4">
+                    <p>{{ resume.basics.summary }}</p>
+                </div>
+            {{/if}}
+            <div class="sm:grid print:grid grid-cols-4 gap-8">
+                <div class="sm:order-2 print:order-2 col-span-3 mb-4">
+                    {{> work }}
+                    {{> volunteer }}
+                    {{> education }}
+                    {{> awards }}
+                    {{> publications }}
+                    {{> projects }}
+                    {{> references }}
+                </div>
+                <div class="order-1 col-span-1 mb-4">
+                    {{> skills }}
+                    {{> languages }}
+                    {{> interests }}
+                </div>
+            </div>
+        </body>
+    </body>
 </html>

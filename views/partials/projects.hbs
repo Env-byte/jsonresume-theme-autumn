@@ -35,9 +35,7 @@
                 {{#if description}}
                     <p class="mb-2">{{ description }}</p>
                 {{/if}}
-                {{#each keywords}}
-                    {{> keyword-section-item name=name keywords=keywords }}
-                {{/each}}
+                {{> keyword-section-item name='' keywords=keywords }}
             </div>
         {{/each}}
     </section>

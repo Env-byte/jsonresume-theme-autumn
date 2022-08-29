@@ -29,7 +29,7 @@ function render(resume) {
   });
 }
 
-Handlebars.registerHelper('ifObject', function(item, options) {
+handlebars.registerHelper('ifObject', function(item, options) {
   if(typeof item === "object") {
     return options.fn(this);
   } else {

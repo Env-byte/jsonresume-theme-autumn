@@ -8,10 +8,17 @@
                         <h3 class="text-base font-bold">
                             {{ name }}
                         </h3>
-                        {{#if url}}
-                            <a href="{{ url }}" target="_blank">
-                                {{ url }} <i class="fa fa-external-link text-xs" aria-hidden="true"></i>
-                            </a>
+                        {{#if urls}}
+                            {{#ifObject urls}}
+                                {{#each keywords}}
+                                      <a href="{{.}}" target="_blank">{{.}} <i class="fa fa-external-link text-xs" aria-hidden="true"></i>
+                                </a>
+                                {{/each}}
+                            {{else}}
+                              <a href="{{ url }}" target="_blank">
+                                        {{ url }} <i class="fa fa-external-link text-xs" aria-hidden="true"></i>
+                                    </a>
+                            {{/if}}
                         {{/if}}
                     </div>
                     {{#if startDate}}
